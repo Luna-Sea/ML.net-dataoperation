@@ -65,14 +65,14 @@ class Program
 
 
         string path_2 = @"G:\VSstudio2022项目\C#项目\ML.net-DataOperation\ML.net-DataOperation\123.txt";
-        StreamWriter writer = new StreamWriter(path_2);
-
+        using  StreamWriter writer = new StreamWriter(path_2);
         for(int i = 0; i < num; i++)
             {
             outputs[i].Length = Length_new[i];
-            writer.Write(outputs[i].Length);
+            writer.WriteLine(outputs[i].Length);
             WriteLine(outputs[i].Length);
             }
+
 
 
 
