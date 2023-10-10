@@ -55,7 +55,6 @@ class Program
             outputs[i] = new Output();
             }
 
-        int index=0;
         var Length = dataview.GetColumn<float>("Length");
         var Diameter = dataview.GetColumn<float>("Diameter");
         var Height = dataview.GetColumn<float>("Height");
@@ -68,19 +67,25 @@ class Program
         string path_2 = @"G:\VSstudio2022项目\C#项目\ML.net-DataOperation\ML.net-DataOperation\123.txt";
         StreamWriter writer = new StreamWriter(path_2);
 
-
-
-
-        IDataView newdataview = context.Data.LoadFromEnumerable<Output>(outputs);
-        var preview = newdataview.Preview(maxRows:10);
-        foreach(var row in preview.RowView)
+        for(int i = 0; i < num; i++)
             {
-                foreach(var col in row.Values)
-                {
-                Write(col.Value);
-                }
-            WriteLine();
+            outputs[i].Length = Length_new[i];
+            writer.Write(outputs[i].Length);
+            WriteLine(outputs[i].Length);
             }
+
+
+
+        //IDataView newdataview = context.Data.LoadFromEnumerable<Output>(outputs);
+        //var preview = newdataview.Preview(maxRows:10);
+        //foreach(var row in preview.RowView)
+        //    {
+        //        foreach(var col in row.Values)
+        //        {
+        //        Write(col.Value);
+        //        }
+        //    WriteLine();
+        //    }
 
 
 
